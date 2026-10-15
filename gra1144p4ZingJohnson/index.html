@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Welcome to Shakespeare's Globe | Zing Johnson, 2026</title>
+<meta name="description" content="Shakespeare's Globe on London's Bankside. See the autumn season calendar, the plays now playing, scenes from the stage and find the theatre at 21 New Globe Walk.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #F0E6D0;
+  --cream-soft: #E7D9BC;
+  --gold: #C6893C;
+  --terracotta: #9C3A1C;
+  --oak: #6E3C21;
+  --espresso: #301809;
+  --ink: #2A1708;
+}
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #231106;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  color: var(--ink);
+}
+#wrapper {
+  width: 1366px;
+  display: block;
+  margin: 0 auto;
+  background-color: #fff;
+}
+h1, h2, h3 { margin: 0; font-weight: 400; }
+.display { font-family: 'Uncial Antiqua', serif; font-weight: 400; }
+p { margin: 0; }
+.kicker {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* ---------- NAV ---------- */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  height: 82px;
+  margin-bottom: -82px;
+  box-sizing: border-box;
+  padding: 0 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(42, 23, 8, 0.94);
+  border-bottom: 1px solid rgba(198, 137, 60, 0.45);
+}
+nav .brand { font-family: 'Uncial Antiqua', serif; font-size: 26px; color: var(--cream); }
+nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 6px; }
+nav ul li { transition: background-color 0.25s; }
+nav ul li a {
+  display: block;
+  padding: 11px 24px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cream-soft);
+  text-decoration: none;
+  transition: color 0.25s;
+}
+nav ul li:hover { background-color: var(--terracotta); }
+nav ul li:hover a { color: var(--cream); }
+
+/* ---------- HERO ---------- */
+#hero {
+  position: relative;
+  height: 760px;
+  background-image: url(images/hero-globe-interior.jpg);
+  background-size: cover;
+  background-position: right center;
+  display: flex;
+  align-items: center;
+}
+#hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(42,23,8,0.92) 0%, rgba(42,23,8,0.75) 34%, rgba(42,23,8,0.25) 60%, rgba(42,23,8,0) 80%);
+}
+.hero-text {
+  position: relative;
+  z-index: 2;
+  width: 620px;
+  padding: 0 72px;
+  color: var(--cream);
+}
+.hero-text .kicker { color: var(--gold); }
+#hero h1 { font-family: 'Uncial Antiqua', serif; font-size: 78px; line-height: 1.12; margin-bottom: 26px; }
+#hero h1 em { font-style: normal; color: var(--gold); }
+.hero-text p { font-size: 19px; line-height: 1.7; max-width: 440px; color: var(--cream-soft); }
+
+/* ---------- CREAM BAND (calendar + cards) ---------- */
+.band { background-color: var(--cream); padding: 88px 72px; }
+
+.cal-row { display: flex; gap: 56px; align-items: stretch; }
+.cal-frame { width: 620px; flex: none; }
+.cal-frame iframe {
+  display: block;
+  width: 620px;
+  height: 480px;
+  border: 0;
+  background-color: #fff;
+  border-top: 6px solid var(--terracotta);
+}
+.cal-copy { align-self: center; }
+.cal-copy .kicker { color: var(--terracotta); }
+.cal-copy h2 { font-family: 'Uncial Antiqua', serif; font-size: 52px; line-height: 1.15; color: var(--espresso); margin-bottom: 22px; }
+.cal-copy p { font-size: 18px; line-height: 1.75; color: var(--oak); max-width: 420px; }
+.cal-copy p + p { margin-top: 16px; }
+
+.now-head { text-align: center; margin: 84px 0 34px; }
+.now-head .kicker { color: var(--terracotta); }
+.now-head h2 { font-family: 'Uncial Antiqua', serif; font-size: 48px; color: var(--espresso); }
+
+.cards { display: flex; gap: 40px; }
+.card {
+  flex: 1;
+  background-color: #fff;
+  border: 1px solid var(--cream-soft);
+  box-shadow: 0 10px 30px rgba(48, 24, 9, 0.12);
+}
+.card img { display: block; width: 100%; height: 300px; object-fit: cover; }
+.card-body { padding: 26px 30px 30px; }
+.card .tag { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
+.card h3 { font-family: 'Uncial Antiqua', serif; font-size: 34px; color: var(--espresso); margin: 10px 0 14px; }
+.card .dates { font-size: 15px; font-weight: 700; letter-spacing: 1px; color: var(--terracotta); margin-bottom: 14px; }
+.card p { font-size: 16px; line-height: 1.7; color: var(--oak); }
+
+/* ---------- MEDIA / CAROUSEL ---------- */
+#media { background-color: var(--espresso); padding: 90px 72px 100px; color: var(--cream); text-align: center; }
+#media .kicker { color: var(--gold); }
+#media h2 { font-family: 'Uncial Antiqua', serif; font-size: 52px; color: var(--cream); margin-bottom: 14px; }
+#media .lead { font-size: 18px; line-height: 1.7; color: var(--cream-soft); max-width: 560px; margin: 0 auto 54px; }
+
+.carousel { position: relative; height: 430px; }
+.carousel input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.carousel-stage { position: relative; height: 372px; }
+.slide {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 660px;
+  transform: translateX(-50%) translateX(452px) scale(0.72);
+  opacity: 0.45;
+  z-index: 1;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.slide iframe { display: block; width: 100%; height: 372px; border: 0; background-color: #000; box-shadow: 0 16px 40px rgba(0,0,0,0.5); pointer-events: none; }
+.slide .cap { margin-top: 14px; font-size: 14px; font-weight: 700; letter-spacing: 1px; color: var(--cream-soft); }
+
+/* centered slide for each checked state */
+#car-0:checked ~ .carousel-stage .slide:nth-child(1),
+#car-1:checked ~ .carousel-stage .slide:nth-child(2),
+#car-2:checked ~ .carousel-stage .slide:nth-child(3) {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+  z-index: 3;
+}
+#car-0:checked ~ .carousel-stage .slide:nth-child(1) iframe,
+#car-1:checked ~ .carousel-stage .slide:nth-child(2) iframe,
+#car-2:checked ~ .carousel-stage .slide:nth-child(3) iframe { pointer-events: auto; }
+
+/* left (previous) slide for each checked state */
+#car-0:checked ~ .carousel-stage .slide:nth-child(3),
+#car-1:checked ~ .carousel-stage .slide:nth-child(1),
+#car-2:checked ~ .carousel-stage .slide:nth-child(2) {
+  transform: translateX(-50%) translateX(-452px) scale(0.72);
+  opacity: 0.45;
+  z-index: 1;
+}
+
+/* right (next) slide for each checked state */
+#car-0:checked ~ .carousel-stage .slide:nth-child(2),
+#car-1:checked ~ .carousel-stage .slide:nth-child(3),
+#car-2:checked ~ .carousel-stage .slide:nth-child(1) {
+  transform: translateX(-50%) translateX(452px) scale(0.72);
+  opacity: 0.45;
+  z-index: 1;
+}
+
+.car-btn {
+  display: none;
+  position: absolute;
+  top: 150px;
+  z-index: 10;
+  width: 56px;
+  height: 56px;
+  box-sizing: border-box;
+  border: 1px solid var(--gold);
+  background-color: rgba(42,23,8,0.6);
+  color: var(--gold);
+  font-size: 22px;
+  line-height: 54px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.25s, color 0.25s;
+}
+.car-btn:hover { background-color: var(--gold); color: var(--espresso); }
+.car-prev { left: 40px; }
+.car-next { right: 40px; }
+#car-0:checked ~ .arr-0,
+#car-1:checked ~ .arr-1,
+#car-2:checked ~ .arr-2 { display: block; }
+
+/* ---------- LOCATION ---------- */
+#location { background-color: #3A1F10; padding: 90px 72px; color: var(--cream); }
+.loc-row { display: flex; gap: 56px; align-items: center; }
+.loc-copy { flex: 1; }
+.loc-copy .kicker { color: var(--gold); }
+#location h2 { font-family: 'Uncial Antiqua', serif; font-size: 56px; line-height: 1.12; color: var(--cream); margin-bottom: 26px; }
+#location h2 em { font-style: normal; color: var(--gold); }
+.loc-copy h3 { font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+.loc-copy p { font-size: 18px; line-height: 1.6; color: var(--cream-soft); margin-bottom: 22px; }
+.loc-copy a { color: var(--cream); text-decoration: underline; transition: color 0.25s; }
+.loc-copy a:hover { color: var(--gold); }
+.loc-map { width: 680px; flex: none; }
+.loc-map iframe { display: block; width: 680px; height: 500px; border: 0; border-right: 8px solid var(--terracotta); }
+
+/* ---------- FOOTER ---------- */
+footer { background-color: var(--ink); padding: 26px 72px; border-top: 1px solid rgba(198,137,60,0.3); }
+footer p { font-size: 12px; line-height: 1.6; font-weight: 300; color: var(--cream-soft); }
+</style>
+</head>
+<body>
+<div id="wrapper">
+
+  <nav>
+    <p class="brand">Shakespeare's Globe</p>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#media">Media</a></li>
+      <li><a href="#location">Location</a></li>
+    </ul>
+  </nav>
+
+  <section id="home">
+    <div id="hero">
+      <div class="hero-text">
+        <p class="kicker">On stage this October</p>
+        <h1 class="display">Theatre under<br>the <em>open sky.</em></h1>
+        <p>Step into a reconstruction of the Elizabethan playhouse on London's Bankside, where the stage reaches into the crowd and every seat is close to the action.</p>
+      </div>
+    </div>
+
+    <div class="band">
+      <div class="cal-row">
+        <div class="cal-frame">
+          <iframe src="https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID%40gmail.com&amp;ctz=Europe%2FLondon&amp;mode=MONTH&amp;showTitle=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;color=%239C3A1C" title="Shakespeare's Globe October season calendar"></iframe>
+        </div>
+        <div class="cal-copy">
+          <p class="kicker">The autumn season</p>
+          <h2 class="display">A month on the boards</h2>
+          <p>Two plays run side by side this October under the open roof. Check the calendar for dates and plan your evening on Bankside.</p>
+          <p>Doors open an hour before the play begins. Come early, take in the yard, and settle in before the first line is spoken.</p>
+        </div>
+      </div>
+
+      <div class="now-head">
+        <p class="kicker">Now playing</p>
+        <h2 class="display">This October at the Globe</h2>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <img src="images/as-you-like-it.jpg" alt="As You Like It at Shakespeare's Globe">
+          <div class="card-body">
+            <p class="tag">Comedy</p>
+            <h3 class="display">As You Like It</h3>
+            <p class="dates">15 &ndash; 25 October</p>
+            <p>Banished to the Forest of Arden, Rosalind trades the court for the wild and finds love in disguise. A bright, quick-witted comedy of mistaken identity.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/much-ado-about-nothing.jpg" alt="Much Ado About Nothing at Shakespeare's Globe">
+          <div class="card-body">
+            <p class="tag">Comedy</p>
+            <h3 class="display">Much Ado About Nothing</h3>
+            <p class="dates">15 &ndash; 24 October</p>
+            <p>Beatrice and Benedick spar their way toward a romance neither will admit to. Wit, mischief and misunderstanding on the Bankside stage.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="media">
+    <p class="kicker">From the stage</p>
+    <h2 class="display">Watch the work</h2>
+    <p class="lead">A taste of the season before you arrive. Use the arrows to move between scenes from the Globe stage.</p>
+
+    <div class="carousel">
+      <input type="radio" name="car" id="car-0">
+      <input type="radio" name="car" id="car-1" checked>
+      <input type="radio" name="car" id="car-2">
+      <div class="carousel-stage">
+        <div class="slide">
+          <iframe src="https://www.youtube.com/embed/BH3tZKiRuS0" title="Jaques' Speech, As You Like It (2026), Shakespeare's Globe" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <p class="cap">Jaques' Speech &middot; As You Like It (2026)</p>
+        </div>
+        <div class="slide">
+          <iframe src="https://www.youtube.com/embed/wARW38YciQs" title="Audience reactions, Pinocchio the Musical (2026), Shakespeare's Globe" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <p class="cap">Audience reactions &middot; Pinocchio the Musical (2026)</p>
+        </div>
+        <div class="slide">
+          <iframe src="https://www.youtube.com/embed/pfnw8N-5WVs" title="Feature Trailer, As You Like It (2026), Shakespeare's Globe" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <p class="cap">Feature Trailer &middot; As You Like It (2026)</p>
+        </div>
+      </div>
+      <label class="car-btn car-prev arr-0" for="car-2" title="Previous video">&#8249;</label>
+      <label class="car-btn car-next arr-0" for="car-1" title="Next video">&#8250;</label>
+      <label class="car-btn car-prev arr-1" for="car-0" title="Previous video">&#8249;</label>
+      <label class="car-btn car-next arr-1" for="car-2" title="Next video">&#8250;</label>
+      <label class="car-btn car-prev arr-2" for="car-1" title="Previous video">&#8249;</label>
+      <label class="car-btn car-next arr-2" for="car-0" title="Next video">&#8250;</label>
+    </div>
+  </section>
+
+  <section id="location">
+    <div class="loc-row">
+      <div class="loc-copy">
+        <p class="kicker">Visit</p>
+        <h2 class="display">Find your <em>seat.</em></h2>
+        <h3>Address</h3>
+        <p>21 New Globe Walk<br>London SE1 9DT<br>United Kingdom</p>
+        <h3>The neighbourhood</h3>
+        <p>Bankside, on the south bank of the River Thames.</p>
+        <h3>Tickets and visits</h3>
+        <p><a href="https://www.shakespearesglobe.com" target="_blank" rel="noopener">shakespearesglobe.com</a></p>
+      </div>
+      <div class="loc-map">
+        <iframe src="https://maps.google.com/maps?q=21%20New%20Globe%20Walk%2C%20London%20SE1%209DT%2C%20United%20Kingdom&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" title="Map to Shakespeare's Globe, 21 New Globe Walk, London" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026, Zing Johnson. This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.</p>
+  </footer>
+
+</div>
+</body>
+</html>

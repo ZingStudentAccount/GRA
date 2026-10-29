@@ -1,0 +1,256 @@
+@charset "utf-8";
+/* ==========================================================
+   Sailorr | styles.css | Zing Johnson, 2026
+   Palette (5 + ink)
+   Ballet Pink      #F6C9D8
+   Bow Pink         #E58FB0
+   Periwinkle Haze  #B9AEF2
+   Baby Blue Flash  #9CC3F2
+   Sticker Lime     #D6F25B
+   Warm Ink         #1B1420  (stands in for black)
+   Fonts: Fredoka (headings + UI), Fuzzy Bubbles (handwritten)
+   ========================================================== */
+
+/* ---------- Resets: body + wrapper ---------- */
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #B9AEF2;
+	background-image: url("images/sky-background.jpg");
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: cover;
+	background-attachment: fixed;
+	color: #1B1420;
+	font-family: "Fredoka", sans-serif;
+	font-weight: 400;
+}
+
+/* wrapper is see-through so the sky shows behind the header, nav and page */
+wrapper {
+	width: 1366px;
+	display: block;
+	margin: 0 auto;
+	background-color: transparent;
+	position: relative;
+	overflow: hidden;
+}
+
+/* ---------- Header (no background) ---------- */
+header {
+	height: 150px;
+	display: flex;
+	align-items: center;
+	padding: 0 64px;
+	background-color: transparent;
+}
+
+.logo {
+	font-family: "Fredoka", sans-serif;
+	font-weight: 700;
+	font-variation-settings: "wdth" 125;
+	font-size: 104px;
+	line-height: 1;
+	letter-spacing: -0.02em;
+	color: #1B1420;
+	text-decoration: none;
+	text-shadow: 5px 5px 0 #F6C9D8;
+	transition: transform 0.3s ease;
+}
+
+.logo:hover,
+.logo:focus-visible {
+	transform: rotate(-2deg) scale(1.02);
+}
+
+/* ---------- Nav (no background) ---------- */
+nav {
+	padding: 0 40px;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+nav li {
+	display: inline-block;
+}
+
+nav a {
+	position: relative;
+	display: block;
+	padding: 16px 24px;
+	font-family: "Fredoka", sans-serif;
+	font-size: 20px;
+	font-weight: 500;
+	font-variation-settings: "wdth" 112.5;
+	color: #1B1420;
+	text-decoration: none;
+	transition: transform 0.25s ease;
+}
+
+/* lime squiggle that draws in on hover (placeholder for the pen-circle later) */
+nav a::after {
+	content: "";
+	position: absolute;
+	left: 24px;
+	right: 24px;
+	bottom: 5px;
+	height: 9px;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='9' viewBox='0 0 16 9'%3E%3Cpath d='M0 4.5 Q4 0.5 8 4.5 T16 4.5' fill='none' stroke='%23D6F25B' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+	background-repeat: repeat-x;
+	background-size: 16px 9px;
+	clip-path: inset(0 100% 0 0);
+	transition: clip-path 0.35s ease;
+}
+
+/* little heart that pops in on hover */
+nav a::before {
+	content: "\2661";
+	position: absolute;
+	top: 2px;
+	right: 8px;
+	font-size: 16px;
+	color: #1B1420;
+	transform: scale(0) rotate(-30deg);
+	transition: transform 0.3s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+nav a:hover,
+nav a:focus-visible {
+	transform: translateY(-3px) rotate(-3deg);
+	outline: none;
+}
+
+nav li:nth-child(even) a:hover,
+nav li:nth-child(even) a:focus-visible {
+	transform: translateY(-3px) rotate(3deg);
+}
+
+nav a:hover::after,
+nav a:focus-visible::after {
+	clip-path: inset(0 0 0 0);
+}
+
+nav a:hover::before,
+nav a:focus-visible::before {
+	transform: scale(1) rotate(12deg);
+}
+
+/* current page keeps its squiggle (CSS only, no template edits) */
+wrapper:has(.scene-home) nav a[href$="index.html"]::after,
+wrapper:has(.scene-news) nav a[href$="news.html"]::after,
+wrapper:has(.scene-music) nav a[href$="music.html"]::after,
+wrapper:has(.scene-videos) nav a[href$="videos.html"]::after,
+wrapper:has(.scene-tour) nav a[href$="tour.html"]::after,
+wrapper:has(.scene-gallery) nav a[href$="gallery.html"]::after,
+wrapper:has(.scene-mailing-list) nav a[href$="mailing-list.html"]::after,
+wrapper:has(.scene-merch) nav a[href$="merch.html"]::after,
+wrapper:has(.scene-blog) nav a[href$="blog.html"]::after,
+wrapper:has(.scene-privacy) nav a[href$="privacy.html"]::after {
+	clip-path: inset(0 0 0 0);
+}
+
+/* ---------- Main content box ---------- */
+main {
+	display: block;
+}
+
+/* Each page's collage lives in .scene.
+   The placeholder cutout (transparent PNG) sits in .scene::before and is
+   cropped at the footer line. Later, swap it per page, e.g.
+   .scene-videos::before { background-image: url(images/tv-scene.png); } */
+.scene {
+	position: relative;
+	box-sizing: border-box;
+	height: 760px;
+	padding: 72px 0 0 64px;
+}
+
+.scene::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: url("images/sailorr-cutout.png");
+	background-repeat: no-repeat;
+	background-position: right 24px top -40px;
+	background-size: auto 118%;
+	pointer-events: none;
+}
+
+.scene > * {
+	position: relative;
+}
+
+h1 {
+	max-width: 600px;
+	margin: 0;
+	font-family: "Fredoka", sans-serif;
+	font-weight: 700;
+	font-variation-settings: "wdth" 125;
+	font-size: 88px;
+	line-height: 1.05;
+	letter-spacing: -0.02em;
+	color: #1B1420;
+}
+
+/* highlighter swipe behind the page title */
+h1 span {
+	padding: 0 6px;
+	background-image: linear-gradient(transparent 58%, #D6F25B 58%, #D6F25B 92%, transparent 92%);
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
+}
+
+h2 {
+	margin: 24px 0 0;
+	font-family: "Fredoka", sans-serif;
+	font-weight: 700;
+	font-variation-settings: "wdth" 112.5;
+	font-size: 30px;
+	line-height: 1.4;
+}
+
+h3 {
+	margin: 0 0 6px;
+	font-family: "Fredoka", sans-serif;
+	font-weight: 500;
+	font-variation-settings: "wdth" 112.5;
+	font-size: 16px;
+}
+
+p {
+	font-size: 18px;
+	line-height: 1.5;
+}
+
+.handwritten {
+	font-family: "Fuzzy Bubbles", sans-serif;
+}
+
+/* ---------- Footer ---------- */
+footer {
+	padding: 16px;
+	font-size: 12px;
+	border-top: 2px dashed #1B1420;
+}
+
+footer p {
+	max-width: 960px;
+	margin: 0 0 0 48px;
+	font-size: 12px;
+	line-height: 1.6;
+}
+
+/* ---------- Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+	*, *::before, *::after {
+		animation: none !important;
+		transition: none !important;
+	}
+}

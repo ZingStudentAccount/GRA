@@ -38,17 +38,16 @@
 
 <section class="scene scene-videos" aria-labelledby="page-title">
   <h1 id="page-title" class="page-h1"><span>Videos</span></h1>
-  <div class="guide-note handwritten"><p class="g-title">tv guide ♡</p><p>ch 1 — video 1</p><p>ch 2 — video 2</p><p>ch 3 — video 3</p></div>
+  <input type="radio" name="ch" id="ch1" class="ch-in" checked><input type="radio" name="ch" id="ch2" class="ch-in"><input type="radio" name="ch" id="ch3" class="ch-in">
+  <div class="guide-note handwritten"><p class="g-title">tv guide ♡</p><p><label for="ch1">ch 1 — COCONUT (feat. Eem Triplin)</label></p><p><label for="ch2">ch 2 — POOKIE’S REQUIEM REMIX (feat. Summer Walker)</label></p><p><label for="ch3">ch 3 — SINCERITY | Vevo DSCVR Live</label></p></div>
   <div class="tv">
-    <div class="tv-screen">
-      <iframe name="tv" title="Sailorr music videos" src="https://www.youtube.com/embed/TG1Vt7Czs8g" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-    </div>
+    <div class="tv-screen"><ul class="tv-reel"><li><iframe title="Sailorr video 1" src="https://www.youtube-nocookie.com/embed/TG1Vt7Czs8g" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></li><li><iframe title="Sailorr video 2" src="https://www.youtube-nocookie.com/embed/cygmozoGLI8" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></li><li><iframe title="Sailorr video 3" src="https://www.youtube-nocookie.com/embed/HT9Kv6sgMUQ" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></li></ul></div>
     <img class="device" src="images/crt-tv.png" alt="">
   </div>
   <div class="remote" aria-label="TV remote">
     <span class="r-power">⏻</span>
-    <a href="https://www.youtube.com/embed/TG1Vt7Czs8g?autoplay=1" target="tv">1</a><a href="https://www.youtube.com/embed/cygmozoGLI8?autoplay=1" target="tv">2</a><a href="https://www.youtube.com/embed/HT9Kv6sgMUQ?autoplay=1" target="tv">3</a>
-    <span>CH ▲</span><span>CH ▼</span><span>VOL</span>
+    <label for="ch1">1</label><label for="ch2">2</label><label for="ch3">3</label>
+    <label for="ch3" class="r-up u1">CH ▲</label><label for="ch2" class="r-dn d1">CH ▼</label><label for="ch1" class="r-up u2">CH ▲</label><label for="ch3" class="r-dn d2">CH ▼</label><label for="ch2" class="r-up u3">CH ▲</label><label for="ch1" class="r-dn d3">CH ▼</label><span>VOL</span>
   </div>
 </section>
 			<!-- InstanceEndEditable --></main>
